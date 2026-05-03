@@ -1,0 +1,26 @@
+version: 2
+
+sources:
+  - name: public_raw
+    description: "Raw source data extracted from CSVs and dumped natively into PostgreSQL without any cleaning."
+    schema: public
+    tables:
+      - name: raw_market_prices
+        description: "Uncleaned market price submissions spanning back 6 years."
+        meta:
+          owner: "Data Ingestion Team"
+          access_pattern: "Raw read-only. External access blocked."
+      - name: raw_production
+        description: "Uncleaned crop production volumes by region."
+        meta:
+          owner: "Data Ingestion Team"
+      - name: raw_weather
+        description: "Uncleaned temperature and rainfall readings."
+        meta:
+          owner: "Data Ingestion Team"
+
+models:
+  - name: stg_market_prices
+    description: "Cleans raw prices, standardizes text casing, checks boundaries."
+    config:
+      materialized: view

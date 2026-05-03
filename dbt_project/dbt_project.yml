@@ -1,0 +1,14 @@
+name: 'agrisupply'
+version: '1.0.0'
+config-version: 2
+
+profile: 'agrisupply'
+
+models:
+  agrisupply:
+    staging:
+      +materialized: view  # Staging models recreate as fast virtual views
+    warehouse:
+      +materialized: table # Final Star Schema physically lands as Tables
+    marts:
+      +materialized: table # Heavy aggregations are saved to physical Tables
