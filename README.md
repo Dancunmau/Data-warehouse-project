@@ -29,7 +29,7 @@ python pipelines/run_pipeline.py
 
 # Generate dbt documentation and view data lineage
 # (In PowerShell, set your DB_PASSWORD first)
-$env:DB_PASSWORD="@Dancunmau2004"
+$env:DB_PASSWORD="password_here"
 dbt docs generate --project-dir dbt_project --profiles-dir dbt_project
 dbt docs serve --project-dir dbt_project --profiles-dir dbt_project --port 8081
 ```
